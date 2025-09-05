@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     init{println(wordToGuess)}
     var chances: Int = 3
+    lateinit var answer: TextView
     lateinit var wordInput: EditText
     lateinit var chancesText: TextView
     lateinit var resultText: TextView
@@ -36,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+        answer = findViewById(R.id.answer)
         wordInput = findViewById(R.id.wordInput)
         chancesText = findViewById(R.id.chancesText)
         answerButton = findViewById(R.id.answerButton)
@@ -115,6 +117,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
         reduceChances(guess)
+        if (guess == wordToGuess){
+            answer.text = wordToGuess
+            answerButton.text = "Restart"
+        }
         return result
     }
 
@@ -126,6 +132,7 @@ class MainActivity : AppCompatActivity() {
 
             if (chances < 1){
                 answerButton.isEnabled = false
+                answer.text = wordToGuess
             }
 
         }
