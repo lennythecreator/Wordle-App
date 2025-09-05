@@ -53,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"/>
-
+        <!-- Where a user can input their text would be could if i can add a border later-->
         <EditText
             android:id="@+id/wordInput"
             android:layout_width="match_parent"
